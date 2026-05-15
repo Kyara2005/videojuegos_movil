@@ -1,0 +1,184 @@
+/* Genera un estilo para la página de videojuegos */
+/* Fondo general */
+ion-content {
+  --background: #121212;
+  color: #ffffff;
+}
+
+/* Toolbar */
+ion-toolbar {
+  --background: linear-gradient(90deg, #6a11cb, #2575fc);
+  --color: white;
+}
+
+ion-title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+/* Tarjetas de videojuegos */
+ion-item {
+  margin-bottom: 16px;
+  border-radius: 16px;
+  --background: #1e1e1e;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  padding: 10px;
+  align-items: center;
+}
+
+/* Título */
+ion-label h2 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+/* Texto */
+ion-label p {
+  color: #b0b0b0;
+  margin: 4px 0;
+  font-size: 0.9rem;
+}
+
+/* Imagen */
+ion-label img {
+  display: block;
+  margin-top: 10px;
+  border-radius: 12px;
+  border: 2px solid #333;
+  object-fit: cover;
+  width: 100px;
+  height: 100px;
+}
+
+/* Botones */
+ion-button {
+  margin-top: 8px;
+  margin-left: 6px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+/* Botón editar */
+ion-button[color="warning"] {
+  --background: #ffb300;
+  --color: #000;
+}
+
+/* Botón eliminar */
+ion-button[color="danger"] {
+  --background: #e53935;
+  --color: white;
+}
+
+/* FAB botón agregar */
+ion-fab-button {
+  --background: linear-gradient(135deg, #00c6ff, #0072ff);
+  --color: white;
+  width: 60px;
+  height: 60px;
+  font-size: 1.8rem;
+  box-shadow: 0 4px 12px rgba(0, 114, 255, 0.5);
+}
+
+/* Hover efecto */
+ion-item:hover {
+  transform: scale(1.02);
+  transition: 0.2s ease-in-out;
+}/* Fondo general */
+ion-content {
+  --background: #121212;
+  color: #ffffff;
+}
+
+/* Toolbar */
+ion-toolbar {
+  --background: linear-gradient(90deg, #6a11cb, #2575fc);
+  --color: white;
+}
+
+ion-title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+/* Tarjetas de videojuegos */
+ion-item {
+  margin-bottom: 16px;
+  border-radius: 16px;
+  --background: #1e1e1e;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  padding: 10px;
+  align-items: center;
+}
+
+/* Título */
+ion-label h2 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+/* Texto */
+ion-label p {
+  color: #b0b0b0;
+  margin: 4px 0;
+  font-size: 0.9rem;
+}
+
+/* Imagen */
+ion-label img {
+  display: block;
+  margin-top: 10px;
+  border-radius: 12px;
+  border: 2px solid #333;
+  object-fit: cover;
+  width: 100px;
+  height: 100px;
+}
+
+/* Botones */
+ion-button {
+  margin-top: 8px;
+  margin-left: 6px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+/* Botón editar */
+ion-button[color="warning"] {
+  --background: #ffb300;
+  --color: #000;
+}
+
+/* Botón eliminar */
+ion-button[color="danger"] {
+  --background: #e53935;
+  --color: white;
+}
+
+/* FAB botón agregar */
+ion-fab-button {
+  --background: linear-gradient(135deg, #00c6ff, #0072ff);
+  --color: white;
+  width: 60px;
+  height: 60px;
+  font-size: 1.8rem;
+  box-shadow: 0 4px 12px rgba(0, 114, 255, 0.5);
+}
+
+/* Hover efecto */
+ion-item:hover {
+  transform: scale(1.02);
+  transition: 0.2s ease-in-out;
+}
+
+.acciones {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
