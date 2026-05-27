@@ -1,0 +1,87 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>apilibros</ion-title>
+    <ion-button slot="start">
+      <ion-back-button defaultHref="/videojuegos"></ion-back-button>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">apilibros</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="container">
+    <h2>Buscar Libros</h2>
+    <ion-item>
+      <ion-label position="floating">Título del libro</ion-label>
+      <ion-input [(ngModel)]="textoBusqueda"></ion-input>
+    </ion-item>
+    <ion-button expand="block" (click)="obtenerLibros()">Buscar</ion-button>
+
+    <div *ngIf="libros.length > 0">
+      <h3>Resultados de la búsqueda:</h3>
+      <ion-list>
+        <ion-item *ngFor="let libro of libros">
+          {{ libro.title }} - {{ libro.author_name ? libro.author_name.join(', ') : 'Autor desconocido' }}
+          <img *ngIf="libro.cover_i" [src]="'https://covers.openlibrary.org/b/id/' + libro.cover_i + '-M.jpg'" alt="Portada del libro" style="width: 50px; margin-left: 10px;">
+        </ion-item>
+      </ion-list>
+    </div>
+  </div> -->
+
+
+  <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>apilibros</ion-title>
+    <ion-button slot="start">
+      <ion-back-button defaultHref="/videojuegos"></ion-back-button>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">apilibros</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="container">
+    <h2>Buscar Libros</h2>
+    <ion-item>
+      <ion-label position="floating">Título del libro</ion-label>
+      <ion-input [(ngModel)]="textoBusqueda"></ion-input>
+    </ion-item>
+    <ion-button expand="block" (click)="obtenerLibros()">Buscar</ion-button>
+
+    <ion-card *ngFor="let libro of libros">
+
+      <img
+        *ngIf="libro.cover_i"
+        [src]="'https://covers.openlibrary.org/b/id/' + libro.cover_i + '-L.jpg'" style="width: 50px; margin-left: 10px;"
+      />
+
+      <ion-card-header>
+        <ion-card-title>
+          {{ libro.title }}
+        </ion-card-title>
+
+        <ion-card-subtitle>
+          {{ libro.author_name?.[0] }}
+        </ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        Año: {{ libro.first_publish_year }}
+      </ion-card-content>
+
+    </ion-card>
+  </div>
+
+  <!-- Para cargar mientras se espera la respuesta de la API -->
+  <ion-spinner *ngIf="loading" class="loading-spinner"></ion-spinner> 
+</ion-content>

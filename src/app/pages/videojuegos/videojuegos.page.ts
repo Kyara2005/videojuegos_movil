@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {
   IonHeader, IonToolbar, IonTitle, IonContent,
   IonList, IonItem, IonLabel, IonButton, IonIcon,
-  IonFab, IonFabButton
+  IonFab, IonFabButton, IonBackButton
 } from '@ionic/angular/standalone';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -18,7 +18,7 @@ import { VideojuegosService, Videojuego } from '../../services/videojuegos.page'
     RouterLink,
     IonHeader, IonToolbar, IonTitle, IonContent,
     IonList, IonItem, IonLabel, IonButton,
-    IonFab, IonFabButton
+    IonFab, IonFabButton, IonBackButton
   ]
 })
 export class VideojuegosPage implements OnInit {

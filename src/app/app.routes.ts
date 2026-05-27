@@ -23,5 +23,10 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/videojuego-form/videojuego-form.page')
         .then(m => m.VideojuegoFormPage)
+  },
+  {
+    path: 'apilibros',
+    loadComponent: () => import('./apilibros/apilibros.page').then( m => m.ApilibrosPage)
   }
+
 ];

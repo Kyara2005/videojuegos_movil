@@ -1,6 +1,9 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Venta de Videojuegos</ion-title>
+    <ion-button slot="start">
+      <ion-back-button defaultHref="/apilibros"></ion-back-button>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
@@ -10,10 +13,9 @@
     <ion-item *ngFor="let juego of videojuegos" class="card-juego">
       <ion-label>
         <h2>{{ juego.titulo }}</h2>
-        <p>{{ juego.plataforma }} | {{ juego.categoria }}</p>
-        <p>Precio: ${{ juego.precio }} | Stock: {{ juego.stock }}</p>
-        <img [src]="juego.imagen_url" alt="{{ juego.titulo }}" style="max-width: 100px; max-height: 100px; justify-items: center;">
-        
+        <img [src]="juego.portada" alt="{{ juego.titulo }}" style="max-width: 100px; max-height: 100px; justify-items: center;">
+        <p>{{ juego.descripcion }} | {{ juego.categoria }}</p>
+        <p>{{ juego.link_referencia }}</p>
       </ion-label>
 
       <div class="acciones">

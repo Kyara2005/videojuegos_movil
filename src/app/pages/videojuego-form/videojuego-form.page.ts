@@ -23,11 +23,10 @@ export class VideojuegoFormPage implements OnInit {
 
   videojuego: Videojuego = {
     titulo: '',
-    plataforma: '',
-    precio: 0,
-    stock: 0,
+    portada: '',
     categoria: '',
-    imagen_url: ''
+    descripcion: '',
+    link_referencia: ''
   };
 
   constructor(

@@ -5,11 +5,10 @@ import { environment } from '../../environments/environment';
 export interface Videojuego {
   id?: number;
   titulo: string;
-  plataforma: string;
-  precio: number;
-  stock: number;
+  portada: string;
   categoria?: string;
-  imagen_url?: string;
+  descripcion?: string;
+  link_referencia?: string;
 }
 
 @Injectable({
@@ -28,7 +27,7 @@ export class VideojuegosService {
 
   async listar() {
     const { data, error } = await this.supabase
-      .from('videojuegos')
+      .from('series')
       .select('*')
       .order('id', { ascending: false });
 
@@ -38,7 +37,7 @@ export class VideojuegosService {
 
   async obtenerPorId(id: number) {
     const { data, error } = await this.supabase
-      .from('videojuegos')
+      .from('series')
       .select('*')
       .eq('id', id)
       .single();
@@ -47,20 +46,20 @@ export class VideojuegosService {
     return data as Videojuego;
   }
 
-  async crear(videojuego: Videojuego) {
+  async crear(series: Videojuego) {
     const { data, error } = await this.supabase
-      .from('videojuegos')
-      .insert(videojuego)
+      .from('series')
+      .insert(series)
       .select();
 
     if (error) throw error;
     return data;
   }
 
-  async actualizar(id: number, videojuego: Videojuego) {
+  async actualizar(id: number, series: Videojuego) {
     const { data, error } = await this.supabase
-      .from('videojuegos')
-      .update(videojuego)
+      .from('series')
+      .update(series)
       .eq('id', id)
       .select();
 
@@ -70,7 +69,7 @@ export class VideojuegosService {
 
   async eliminar(id: number) {
     const { error } = await this.supabase
-      .from('videojuegos')
+      .from('series')
       .delete()
       .eq('id', id);
 
