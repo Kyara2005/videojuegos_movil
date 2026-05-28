@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
+    </ion-buttons>
     <ion-title>
       {{ id ? 'Editar Serie' : 'Nueva Serie' }}
     </ion-title>
@@ -26,6 +29,18 @@
     <ion-input
       [(ngModel)]="videojuego.portada">
     </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Imagen</ion-label>
+    <input type="file" accept="image/*"
+          (change)="seleccionarImagen($event)">
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Audio</ion-label>
+    <input type="file" accept="audio/*"
+          (change)="seleccionarAudio($event)">
   </ion-item>
 
   <ion-item>

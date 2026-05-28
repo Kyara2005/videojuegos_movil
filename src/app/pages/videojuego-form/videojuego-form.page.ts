@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {
   IonHeader, IonToolbar, IonTitle, IonContent,
-  IonItem, IonLabel, IonInput, IonButton
+  IonItem, IonLabel, IonInput, IonButton, IonButtons, IonBackButton, IonTextarea
 } from '@ionic/angular/standalone';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { VideojuegosService, Videojuego } from '../../services/videojuegos.page';
 
@@ -12,18 +12,22 @@ import { VideojuegosService, Videojuego } from '../../services/videojuegos.page'
   templateUrl: './videojuego-form.page.html',
   standalone: true,
   imports: [
-    FormsModule,
+    ReactiveFormsModule, FormsModule,
     IonHeader, IonToolbar, IonTitle, IonContent,
-    IonItem, IonLabel, IonInput, IonButton
+    IonItem, IonLabel, IonInput, IonButton, IonButtons, IonBackButton, IonTextarea
   ]
 })
 export class VideojuegoFormPage implements OnInit {
 
   id?: number;
+  imagenFile!: File;
+  audioFile!: File;
 
   videojuego: Videojuego = {
     titulo: '',
     portada: '',
+    imagen: '',
+    audio: '',
     categoria: '',
     descripcion: '',
     link_referencia: ''
@@ -44,13 +48,34 @@ export class VideojuegoFormPage implements OnInit {
     }
   }
 
-  async guardar() {
+  seleccionarImagen(event: any) {
+  this.imagenFile = event.target.files[0];
+  }
+
+  seleccionarAudio(event: any) {
+    this.audioFile = event.target.files[0];
+  }
+
+   async guardar() {
+    // SUBIR IMAGEN
+    if (this.imagenFile) {
+      this.videojuego.imagen =
+        await this.videojuegosService
+          .subirImagen(this.imagenFile);
+    }
+
+    // SUBIR AUDIO
+    if (this.audioFile) {
+      this.videojuego.audio =
+        await this.videojuegosService
+          .subirAudio(this.audioFile);
+    }
+
     if (this.id) {
       await this.videojuegosService.actualizar(this.id, this.videojuego);
     } else {
       await this.videojuegosService.crear(this.videojuego);
     }
-
-    this.router.navigate(['/videojuegos']);
+    this.router.navigate(['/tabs/tab1']);
   }
 }

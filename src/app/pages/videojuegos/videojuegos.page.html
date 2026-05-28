@@ -2,7 +2,11 @@
   <ion-toolbar>
     <ion-title>Venta de Videojuegos</ion-title>
     <ion-button slot="start">
-      <ion-back-button defaultHref="/apilibros"></ion-back-button>
+      <ion-back-button defaultHref="/tabs/tab1/apilibros"> Ir a libros</ion-back-button>
+    </ion-button>
+
+    <ion-button slot="end" routerLink="/login">
+      Cerrar sesión
     </ion-button>
   </ion-toolbar>
 </ion-header>
@@ -14,12 +18,56 @@
       <ion-label>
         <h2>{{ juego.titulo }}</h2>
         <img [src]="juego.portada" alt="{{ juego.titulo }}" style="max-width: 100px; max-height: 100px; justify-items: center;">
+        <!-- AUDIO -->
+        <div *ngIf="juego.audio">
+          <audio controls [src]="juego.audio">
+            Tu navegador no soporta audio.
+          </audio>
+        </div>
         <p>{{ juego.descripcion }} | {{ juego.categoria }}</p>
-        <p>{{ juego.link_referencia }}</p>
+        
+        <ion-button
+        *ngIf="juego.link_referencia"
+        (click)="mostrarVideo(juego.link_referencia)">
+          Ver trailer
+        </ion-button>
+
+        <div *ngIf="videoUrl === juego.link_referencia">
+          <iframe
+            width="100%"
+            height="200"
+            [src]="getVideoUrl(juego.link_referencia)"
+            frameborder="0"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <!-- BOTÓN MOSTRAR -->
+        <ion-button
+          *ngIf="juego.imagen"
+          (click)="toggleImagen(juego.id!)"
+          color="secondary"
+        >
+          {{ imagenVisible === juego.id ? 'Ocultar Imagen' : 'Ver Imagen' }}
+        </ion-button>
+
+        <!-- IMAGEN -->
+        <div *ngIf="imagenVisible === juego.id">
+          <img
+            [src]="juego.imagen"
+            style="
+              width: 100%;
+              max-width: 300px;
+              margin-top: 10px;
+              border-radius: 10px;
+            "
+          >
+        </div>
+        
       </ion-label>
 
       <div class="acciones">
-        <ion-button [routerLink]="['/videojuegos-form', juego.id]">
+        <ion-button [routerLink]="['/tabs/tab1/videojuego-form', juego.id]">
           Editar
         </ion-button>
 
@@ -32,7 +80,7 @@
   </ion-list>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button routerLink="/videojuegos-form">
+    <ion-fab-button routerLink="/tabs/tab1/videojuego-form">
       +
     </ion-fab-button>
   </ion-fab>
