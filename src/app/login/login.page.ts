@@ -42,11 +42,12 @@ export class LoginPage implements OnInit {
     );
 
     if (error) {
-      this.mensaje = 'Error al registrarse';
-    } else {
-      this.mensaje = 'Revisa tu correo para confirmar el registro';
+      this.mensaje = error.message;
+      return;
     }
-  }
+
+    this.mensaje = 'Usuario registrado';
+    }
 
   ngOnInit() {
   }

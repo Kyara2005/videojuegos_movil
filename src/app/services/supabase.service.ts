@@ -24,6 +24,8 @@ export class SupabaseService {
         {
             auth: {
                 storageKey: 'supabase-db-client',
+                // persistSession: false, // no guarda sesión, no necesita lock
+                // autoRefreshToken: false // no refresca token, no necesita lock
             }
         }
     );

@@ -1,4 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="ic_launcher_background">#FFFFFF</color>
+  <!-- Cambia este color al que quieras de fondo -->
+  <color name="ic_launcher_background">#6C0063</color>
+
+  <color name="vibe_primary">#6C0063</color>
+  <color name="vibe_secondary">#D6006D</color>
 </resources>
